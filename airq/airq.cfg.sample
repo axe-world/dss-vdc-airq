@@ -1,0 +1,67 @@
+reload_values = 60;
+zone_id = 65534;
+debug = 7;
+airq : 
+{
+  id = "AirQ1";
+  name = "AirQ";
+  ip = "<ip address>";
+  password = "<airq password>";
+};
+sensor_values : 
+{
+  s0 : 
+  {
+    value_name = "co2";
+    sensor_type = 22;
+    sensor_usage = 1;
+  };
+  s1 : 
+  {
+    value_name = "co";
+    sensor_type = 5;
+    sensor_usage = 1;
+  };
+  s2 : 
+  {
+    value_name = "temperature";
+    sensor_type = 1;
+    sensor_usage = 1;
+  };
+  s3 : 
+  {
+    value_name = "sound";
+    sensor_type = 20;
+    sensor_usage = 4;
+  };
+  s4 : 
+  {
+    value_name = "humidity";
+    sensor_type = 2;
+    sensor_usage = 1;
+  };
+  s5 : 
+  {
+    value_name = "pressure";
+    sensor_type = 18;
+    sensor_usage = 2;
+  };
+  s6 : 
+  {
+    value_name = "pm1";
+    sensor_type = 10;
+    sensor_usage = 1;
+  };
+  s7 : 
+  {
+    value_name = "pm2_5";
+    sensor_type = 9;
+    sensor_usage = 2;
+  };
+  s8 : 
+  {
+    value_name = "pm10";
+    sensor_type = 8;
+    sensor_usage = 4;
+  };
+};

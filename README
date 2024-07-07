@@ -1,0 +1,71 @@
+Configuration
+--------------
+
+This vDC requires a configuration file called airq.cfg in the same folder as the vDC.
+If you start the vDC without an existing configuration file, a new one will be created containing the required parameters. vDC will terminate after this.
+Change the parameters according to your requirements and start the vDC again.
+
+Following is a description of each parameter:
+
+vdcdsuid  -> this is a unique DS id and will be automatically created; just leave empty in config file
+reload_values -> time in seconds after which new values are pulled from airq device
+zone_id   -> DigitalStrom zone id
+debug     -> Logging level for the vDC  - 7 debug / all messages  ; 0 nearly no messages;
+
+Section "humifier" contains the AirQ device configuration:
+
+ id = some alphanumeric ID identifying the device (e.g. model).             
+ name = Any name for your Venta device
+ ip = ip address of the AirQ device in your home network
+ password = password or your AirQ device
+              
+
+ 
+Section "sensor_values" contains the AirQ values which should be reported as value sensor ("Sensorwert") to DSS
+
+sensor_values : s0 to s15 (current maximum is 15 value sensors)
+        value_name -> name of the AirQ data parameter to be evaluated (see table 3 below for all parameters currently supported)
+        sensor_type -> DS specific value (see table 1 below) 
+        sensor_usage -> DS specific value (see table 2 below)
+        
+        
+Tables:
+--------
+
+Table 1 - DS specific sensor type to be used in config parameters sensor_values : s(x) -> sensor_type:
+
+sensor_type   Description
+----------------------------------------
+1               Temperature (C)
+2               Relative Humidity (%)
+22              CO2
+5               CO
+20              noise
+18              air pressure
+10              pollution  PM1  
+9               pollution  PM2.5
+8               pollution  PM10
+
+Table 2 - DS specific sensor usage to be used in config parameters sensor_values : s(x) -> sensor_usage:
+
+sensor_usage   Description
+----------------------------------------
+0                outdoor sensor
+1                indoor sensor
+
+Table 3 - data values currently supported
+
+name of data value            description                                                                          use as                          
+--------------------------------------------------------------------------------------------------------------------------------------
+co2                         co2 value of airq sensor                                                    sensor_values   
+co                          co value of airq sensor                                                     sensor_values   
+temperature                 temperature of airq sensor                                                  sensor_values   
+sound                       noise value of airq sensor                                                  sensor_values      
+humidity                    humidity value of airq sensor                                               sensor_values   
+pressure                    air pressure value of airq sensor                                           sensor_values    
+pm1                         pm1 pollution level of airq sensor                                          sensor_values    
+pm2_5                       pm2.5 pollution level of airq sensor                                        sensor_values    
+pm10                        pm10 pollution level of airq sensor                                         sensor_values    
+
+
+Sample of a valid airq.cfg file with useful settings, see file airq.cfg.sample
