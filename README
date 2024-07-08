@@ -12,7 +12,7 @@ reload_values -> time in seconds after which new values are pulled from airq dev
 zone_id   -> DigitalStrom zone id
 debug     -> Logging level for the vDC  - 7 debug / all messages  ; 0 nearly no messages;
 
-Section "humifier" contains the AirQ device configuration:
+Section "airq" contains the AirQ device configuration:
 
  id = some alphanumeric ID identifying the device (e.g. model).             
  name = Any name for your Venta device
